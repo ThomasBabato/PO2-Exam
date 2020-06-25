@@ -31,7 +31,7 @@ public class ConsumerProducer {
                     }
                 }
                 /* the list is empty */
-                else {
+                else
                     System.out.println("Consumer: list empty");
                 /* put the Thread to sleep */
                 try {

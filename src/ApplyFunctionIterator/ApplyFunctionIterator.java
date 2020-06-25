@@ -11,6 +11,10 @@ the lambda expression doesn't work. Idk why.
 
 public class ApplyFunctionIterator {
 
+
+
+
+
     /* ApplyFunctionAL static class
     * It's necessary to create this class static if we declare all in the same file, as the Professor does */
     public static class ApplyFunctionAL<T> extends ArrayList<T> {
@@ -46,7 +50,7 @@ public class ApplyFunctionIterator {
 
     /* main */
     public static void main (String[] args) {
-        ArrayList<Integer> l = new ApplyFunctionAL<>();
+        ApplyFunctionAL<Integer> l = new ApplyFunctionAL<>();
 
         /* add elements */
         for (int i=0; i<10; i++) {
@@ -56,7 +60,8 @@ public class ApplyFunctionIterator {
 
 
         /* create iterator and apply a function */
-        Iterator<Integer> it = l.iterator(/*(Function<Integer, Integer>) x -> x + 1*/);
+       // Function<Integer,Integer> f = (Integer n) ->5;
+        Iterator<Integer> it = l.iterator( (Integer n) -> n+1 );
 
         /* print the list and apply a function */
         while ( it.hasNext() ) {
