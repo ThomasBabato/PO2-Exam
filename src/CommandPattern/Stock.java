@@ -9,12 +9,12 @@ public class Stock {
     public String name="Stonks";
     public int value=0;
 
-    public void sellStock(int n) {
-        value -= n;
+    public void sellStock() {
+        System.out.println("Bought stock");
     }
 
-    public void buyStock(int n) {
-        value += n;
+    public void buyStock() {
+        System.out.println("Sold stock");
     }
 
 
