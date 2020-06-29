@@ -18,8 +18,16 @@ public class ApplyFunctionIterator {
     /* ApplyFunctionAL static class
     * It's necessary to create this class static if we declare all in the same file, as the Professor does */
     public static class ApplyFunctionAL<T> extends ArrayList<T> {
+        private Function<T,T> f;
 
-        public Iterator<T> iterator(Function <T,T> f) {
+        //Constructor
+        public ApplyFunctionAL (Function<T,T> f) {
+            super(); // call of the ArrayList constructor
+            this.f = f;
+        }
+
+        @Override
+        public Iterator<T> iterator() {
             Iterator<T> i = super.iterator() ;
 
            return new Iterator<T>() {
@@ -50,7 +58,7 @@ public class ApplyFunctionIterator {
 
     /* main */
     public static void main (String[] args) {
-        ApplyFunctionAL<Integer> l = new ApplyFunctionAL<>();
+        ApplyFunctionAL<Integer> l = new ApplyFunctionAL<>((Integer n) -> n+1 );
 
         /* add elements */
         for (int i=0; i<10; i++) {
@@ -61,7 +69,7 @@ public class ApplyFunctionIterator {
 
         /* create iterator and apply a function */
        // Function<Integer,Integer> f = (Integer n) ->5;
-        Iterator<Integer> it = l.iterator( (Integer n) -> n+1 );
+        Iterator<Integer> it = l.iterator();
 
         /* print the list and apply a function */
         while ( it.hasNext() ) {

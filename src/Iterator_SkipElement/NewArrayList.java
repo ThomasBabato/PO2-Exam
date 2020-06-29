@@ -6,20 +6,17 @@ import java.util.Iterator;
 public class NewArrayList<T> extends ArrayList<T> {
 
     /* override iterator with lambda */
-    public Iterator<T> iterator() {
+    public Iterator<T> iterator(int n) {
         return new Iterator<T>() {
             private int pos = 0;
 
             public boolean hasNext() {
-                return pos < size();
+                return pos+n < size();
             }
-            /* print only the lements in event position */
+
+            /* print only the elements in event position */
             public T next() {
-                if ( pos%2 == 0 ) {
-                    return get(pos++);
-                }
-                pos++;
-                return null;
+                return get(pos+=n);
             }
         };
     }

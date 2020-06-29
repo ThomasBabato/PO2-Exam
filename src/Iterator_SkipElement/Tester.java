@@ -13,7 +13,7 @@ public class Tester {
         }
 
         /* get Iterator */
-        Iterator i = nal.iterator();
+        Iterator i = nal.iterator(2);
 
         /* print only even elements */
         while ( i.hasNext() ) {
